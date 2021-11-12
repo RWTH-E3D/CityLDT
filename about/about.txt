@@ -1,0 +1,8 @@
+The City-LoD-Transformation-Tool (CityLDT) aims to easily scale CityGML models between differing Levels of Detail (LoD).
+The main focus is to enrich lower level buildings to a higher level of detail with user entered data; reducing complexety is also envisioned.
+This tool was developed for Python 3.5+ using PySide2. A detailed list of the required libraries can be found in the readme.
+
+
+Contact:
+M.Sc. Avichal Malhotra: malhotra@e3d.rwth-aachen.de
+Simon Raming:           simon.raming@rwth-aachen.de
