@@ -14,9 +14,9 @@ from PySide2 import QtWidgets, QtGui, QtCore
 import time
 
 # import of functions
-import gui_functions as gf
-import LDTselection as sel
-import LDTtransformation as ldt
+import CityLDT.gui_functions as gf
+import CityLDT.LDTselection as sel
+import CityLDT.LDTtransformation as ldt
 
 
 # setting system environment variable

@@ -7,9 +7,9 @@ import lxml.etree as ET
 import uuid
 
 # import of functions
-import gui_functions as gf
-import LDTselection as sel
-import TWOd_operations as TWOd
+import CityLDT.gui_functions as gf
+import CityLDT.LDTselection as sel
+import CityLDT.TWOd_operations as TWOd
 
 def checkIfStringIsNumber(self, string, t=float):
     """checks if string can be converted to a number"""

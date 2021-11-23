@@ -6,9 +6,9 @@ import glob
 import math
 
 # import of functions
-import gui_functions as gf
-import TWOd_operations as TWOd
-import string_manipulation as sm
+import CityLDT.gui_functions as gf
+import CityLDT.TWOd_operations as TWOd
+import CityLDT.string_manipulation as sm
 
 
 
