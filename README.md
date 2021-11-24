@@ -1,5 +1,4 @@
 
-
 ![E3D - Institute of Energy Efficiency and Sustainable Building, RWTH Aachen University](./pictures/e3dHeader.png)
 
 # CityLDT- CityGML Levels of Detail Transformation Tool 
@@ -12,7 +11,7 @@ The open-source CityLDT tool currently supports an import and export of LoD0-2.
 It allows users to upscale 3D CityGML models where less/no detailed data exists and can also be used to downscale models for applications such as flood simulations, geographical map591
 ping or for storage and exchange in databases.
 
-This GitLab page will be used to further develop the package and make it available under the [MIT License](https://gitlab.e3d.rwth-aachen.de/e3d-software-tools/cityldt/cityldt/-/blob/master/License/LICENSE).
+This GitLab page will be used to further develop the package and make it available under the [MIT License](https://gitlab.e3d.rwth-aachen.de/e3d-software-tools/cityldt/cityldt/-/blob/main/License/LICENSE).
 
 If you have any questions regarding CityLDT feel free to contact us at: [cityatb@e3d.rwth-aachen.de](mailto:cityatb@e3d.rwth-aachen.de)
 
