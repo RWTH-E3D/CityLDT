@@ -1,4 +1,3 @@
-
 ![E3D - Institute of Energy Efficiency and Sustainable Building, RWTH Aachen University](./pictures/e3dHeader.png)
 
 # CityLDT- CityGML Levels of Detail Transformation Tool 
@@ -57,4 +56,4 @@ Will be available soon.
 
 ## License
 
-CityLDT is released by RWTH Aachen University, E3D - Institute of Energy Efficiency and Sustainable Building, under the [MIT License](https://gitlab.e3d.rwth-aachen.de/e3d-software-tools/cityLDT/cityLDT/-/blob/master/License/LICENSE).
+CityLDT is released by RWTH Aachen University, E3D - Institute of Energy Efficiency and Sustainable Building, under the [MIT License](https://gitlab.e3d.rwth-aachen.de/e3d-software-tools/cityldt/cityldt/-/blob/main/License/LICENSE).
