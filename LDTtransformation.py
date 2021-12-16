@@ -453,13 +453,19 @@ def setBuildingElements(building_E, nss, df):
                 if sBOrder[tag] != -1:
                     sBOrder[tag] -=- 1
 
-        if (df.iloc[0][dfName] != None) and (not pd.isna(df.iloc[0][dfName])):
+        dfValue = df.iloc[0][dfName]
+        if (dfValue != None) and (not pd.isna(dfValue)):
             check = building_E.find(preTag, nss)
+            if dfName == "SAG" or dfName == "SBG":
+                try:
+                    dfValue = int(dfValue)
+                except:
+                    print("ERROR converting value of", tagName, " (", dfValue, ") to int.")
             if check != None:
-                check.text = str(df.iloc[0][dfName])
+                check.text = str(dfValue)
             else:
                 new_E = ET.Element(ET.QName(nss[prefix], tagName))
-                new_E.text = str(df.iloc[0][dfName])
+                new_E.text = str(dfValue)
                 building_E.insert(insertIndex + 1, new_E)        
 
 
