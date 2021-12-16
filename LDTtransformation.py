@@ -407,14 +407,15 @@ def getNewTree(self, filename):
     nLcorner_E = envelope_E.find('gml:lowerCorner', nnss)
     nUcorner_E = envelope_E.find('gml:upperCorner', nnss)
     
-    description_already = False     # flag noting if file already has a description element referenecing the CityLDT
-    description_LDT_E = nroot_E.findall('gml:description', nnss)
-    for des_E in description_LDT_E:
-        if des_E.text == 'created using the e3D CityLDT':
-            description_already = True
-            break
+    description_LDT_E = nroot_E.find('gml:description', nnss)
+    if description_LDT_E != None:
+        if 'transformed using the RWTH e3d City-LDT' not in description_LDT_E.text:
+            description_LDT_E.text += "\n                       transfromed using the RWTH e3d City-LDT"
+        else:
+            # transformed description is already present in element
+            pass
     
-    if description_already == False:
+    else:
         description_E = ET.SubElement(nroot_E, ET.QName(nnss["gml"], 'description'), nsmap={'gml': nnss["gml"]}, )
         description_E.text = 'created using the e3D CityLDT'
         nroot_E.insert(0, description_E)
