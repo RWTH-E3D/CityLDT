@@ -11,13 +11,17 @@ import gui_functions as gf
 import LDTselection as sel
 import TWOd_operations as TWOd
 
-def checkIfStringIsNumber(self, string, t=float):
+def checkIfStringIsNumber(self, string, t=float, loc=""):
     """checks if string can be converted to a number"""
     try:
         t(string)
         return True
     except:
-        msg = 'Unable to safe! "' + string + '" is not a valid input.'
+        if loc != "":
+            location = f" from {loc} "
+        else:
+            location = ""
+        msg = f'Unable to safe! {string}{location} is not a valid input.'
         gf.messageBox(self, 'ERROR', msg)
         return False
 
@@ -34,7 +38,7 @@ def onSave(self):
     params = {}
 
     # buildingHeight
-    if self.txtB_buildingHeight.text() != '' and checkIfStringIsNumber(self, self.txtB_buildingHeight.text()):
+    if self.txtB_buildingHeight.text() != '' and checkIfStringIsNumber(self, self.txtB_buildingHeight.text(), loc="building height"):
         params["bHeight"] = float(self.txtB_buildingHeight.text())
     else:
         params["bHeight"] = None
@@ -55,7 +59,7 @@ def onSave(self):
                 pass
             else:
                 print("wrong formatting of formula")
-        elif checkIfStringIsNumber(self, self.txtB_roofHeight.text()):
+        elif checkIfStringIsNumber(self, self.txtB_roofHeight.text(), loc="roof height"):
             params["rHeight"] = float(self.txtB_roofHeight.text())
         
     else:
@@ -91,13 +95,13 @@ def onSave(self):
         params["YOC"] = None
 
     # SAG
-    if self.txtB_SAG.text() !=  '' and checkIfStringIsNumber(self, self.txtB_SAG.text(), int):
+    if self.txtB_SAG.text() !=  '' and checkIfStringIsNumber(self, self.txtB_SAG.text(), int, loc="storeys above ground"):
         params["SAG"] = int(self.txtB_SAG.text())
     else:
         params["SAG"] = None
 
     # SBG
-    if self.txtB_SBG.text() != '' and checkIfStringIsNumber(self, self.txtB_SBG.text(), int):
+    if self.txtB_SBG.text() != '' and checkIfStringIsNumber(self, self.txtB_SBG.text(), int, loc="storeys below ground"):
         params["SBG"] = int(self.txtB_SBG.text())
     else:
         params["SBG"] = None
@@ -435,7 +439,7 @@ def setBuildingElements(building_E, nss, df):
             index = building_E.index(target[-1])
             sBOrder[tag] = index
     
-    # running through all optional elements and adding if necessary
+    # running through all optional elements and adding their index if necessary
     prefix = "bldg"
     for tagName, dfName in [["function", "function"], ["yearOfConstruction", "YOC"], ["roofType", "roofType"], ["measuredHeight", "buildingHeight"], ["storeysAboveGround", "SAG"], ["storeysBelowGround", "SBG"]]:
         preTag = prefix + ":" + tagName
