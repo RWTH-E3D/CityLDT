@@ -561,7 +561,7 @@ class transformation(QtWidgets.QWidget):
         try:
             sets = self.buildingDict[index]['values']
         except:
-            sets = {'LoD': 'N/D', 'rType': 'N/D', 'bFunction': 'N/D', 'SAG': 'N/D', 'SBG': 'N/D', 'YOC': 'N/D', 'rHeight': 'N/D', 'rHeading': 'N/D', 'bHeight': 'N/D'}
+            sets = {-1: {'LoD': None, 'rType': None, 'bFunction': None, 'SAG': None, 'SBG': None, 'YOC': None, 'rHeight': None, 'rHeading': None, 'bHeight': None}}
 
         # values from previous overwrite
         if index in self.buildingOverWrDict:
