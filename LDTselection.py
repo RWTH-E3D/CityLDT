@@ -239,6 +239,8 @@ def get_info_from_building(element, nss):
             data["rHeight"] = round(float(maximum_R - minimum_R),3)
 
         if data["rType"] ==  '1010' or data["rType"] ==  '1020' or data["rType"] ==  '1030' or data["rType"] == '2100' or data["rType"] == '2200' or data["rType"] == '3100':
+            # setting default value to catch reference errors
+            rx, ry = None, None
             # heading is equivalent to the roofline with the steepest angle
             for roof_surface in roof_surfaces:
                 string = ' '.join(roof_surface)
@@ -263,7 +265,10 @@ def get_info_from_building(element, nss):
                                 # slope goes from second point to first (or heights are equal)
                                 rx = (points[i][0] - points[i+1][0]) / length
                                 ry = (points[i][1] - points[i+1][1]) / length
-            data["rHeading"] = TWOd.angle([0,0], [rx, ry])
+            if rx != None and ry != None:
+                data["rHeading"] = TWOd.angle([0,0], [rx, ry])
+            else:
+                data["rHeading"] = 'N/D'
         else:
             data["rHeading"] = 'N/D'        
     elif len(gS_list) == 5:
