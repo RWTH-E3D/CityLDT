@@ -462,13 +462,19 @@ def setBuildingElements(building_E, nss, df):
         if (dfValue != None) and (not pd.isna(dfValue)):
             check = building_E.find(preTag, nss)
             if dfName == "SAG" or dfName == "SBG":
-                try:
-                    dfValue = int(dfValue)
-                except:
-                    print("ERROR converting value of", tagName, " (", dfValue, ") to int.")
-            if check != None:
+                if dfValue != 'N/D':
+                    try:
+                        dfValue = int(dfValue)
+                    except:
+                        print("ERROR converting value of", tagName, " (", dfValue, ") to int.")
+            # remove element if value is set to N/D
+            if check != None and dfValue == 'N/D':
+                building_E.remove(check)
+            elif check != None:
+                # check content of element
                 check.text = str(dfValue)
             else:
+                # create new element with value
                 new_E = ET.Element(ET.QName(nss[prefix], tagName))
                 new_E.text = str(dfValue)
                 building_E.insert(insertIndex + 1, new_E)        
